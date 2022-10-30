@@ -1,5 +1,11 @@
 {
   "header": {
-    "login": "Connexion"
+    "login": "Connexion",
+    "email": "Adresse email",
+    "password": "Mot de passe",
+    "log": "Se connecter",
+    "help": "Aide",
+    "confidentiality": "Confidentialité",
+    "contact": "Contactez-nous"
   }
 }

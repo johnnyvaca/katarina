@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {
   Image,
   Text,
@@ -7,10 +7,14 @@ import {
   SafeAreaView,
   TextInput,
   TouchableOpacity,
+  Alert,
+  ActionSheetIOS,
 } from 'react-native';
 import './i18n';
 import {useTranslation} from 'react-i18next';
+
 import i18next from 'i18next';
+import Options from 'react-native-actionsheet/lib/options';
 
 export default function Login() {
   const {t, i18n} = useTranslation('header', 'global');
@@ -40,6 +44,23 @@ export default function Login() {
     setPassword(!password);
   };
 
+  let actionSheet = useRef();
+  let optionArray = [
+    'Option1',
+    'Option2',
+    'Option3',
+    'Option4',
+    'Option5',
+    'Option6',
+    'Option7',
+    'Cancel',
+  ];
+
+  const onPress = () => {
+    ActionSheetIOS.showActionSheetWithOptions({
+      Options: ['Cancel', 'sdf', 'Cwerw', 'Caeerel', 'Cancerterel'],
+    });
+  };
   return (
     <SafeAreaView
       style={{
@@ -76,13 +97,13 @@ export default function Login() {
           marginTop: 20,
           marginBottom: 15,
         }}>
-        E-mail address
+        {t('email')}
       </Text>
       <TextInput
         style={[{borderColor: inputBorderColor}, styles.input]}
         //    onChangeText={onChangeNumber}
         //   value="hello"
-        placeholder="E-mail address"
+        placeholder={t('email')}
         //   keyboardType="numeric"
         onFocus={customOnFocus}
         onBlur={customOnBlur}
@@ -95,14 +116,14 @@ export default function Login() {
           marginTop: 20,
           marginBottom: 15,
         }}>
-        Password
+        {t('password')}
       </Text>
       <View style={[{borderColor: inputBorderColor2}, styles.container]}>
         <TextInput
           style={{width: '89%', color: '#00385D'}}
           //    onChangeText={onChangeNumber}
           // value="hello"
-          placeholder="Password"
+          placeholder={t('password')}
           //  keyboardType="numeric"
           secureTextEntry={password}
           passwordRules={require}
@@ -120,6 +141,10 @@ export default function Login() {
           />
         </TouchableOpacity>
       </View>
+      <Text>React Native Bottom action Menu</Text>
+      <TouchableOpacity>
+        <Text>Open Bottom actionSheet</Text>
+      </TouchableOpacity>
       <View
         style={{
           height: '45%',
@@ -151,7 +176,7 @@ export default function Login() {
               fontFamily: 'Source Sans Pro',
               fontSize: 16,
             }}>
-            Log in
+            {t('log')}
           </Text>
         </TouchableOpacity>
         <View
@@ -162,16 +187,26 @@ export default function Login() {
             height: '20%',
           }}>
           <TouchableOpacity>
-            <Text>Help</Text>
+            <Text>{t('help')}</Text>
           </TouchableOpacity>
           <TouchableOpacity>
-            <Text>Confidentiality</Text>
+            <Text>{t('confidentiality')}</Text>
           </TouchableOpacity>
           <TouchableOpacity>
-            <Text>Contact us</Text>
+            <Text>{t('contact')}</Text>
           </TouchableOpacity>
         </View>
       </View>
+      {/*  <ActionSheet
+        ref={actionSheet}
+        title={'Which do you like?'}
+        options={optionArray}
+        cancelButtonIndex={7}
+        destructiveButtonIndex={1}
+        onPress={index => {
+          alert(optionArray[index]);
+        }}
+      /> */}
     </SafeAreaView>
   );
 }

@@ -1,5 +1,11 @@
 {
   "header": {
-    "login": "Log in"
+    "login": "Log in",
+    "email": "E-mail address",
+    "Password": "Password",
+    "log": "Log in",
+    "help": "Help",
+    "confidentiality": "Confidentiality",
+    "contact": "Contact us"
   }
 }

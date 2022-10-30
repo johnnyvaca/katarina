@@ -14,6 +14,8 @@
     "react": "18.0.0",
     "react-i18next": "^12.0.0",
     "react-native": "0.69.4",
+    "react-native-actions-sheet": "^0.8.10",
+    "react-native-actionsheet": "^2.4.2",
     "react-native-locale-detector": "^1.0.1",
     "react-native-translation": "^1.1.0"
   },
