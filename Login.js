@@ -8,13 +8,12 @@ import {
   TextInput,
   TouchableOpacity,
   Alert,
-  ActionSheetIOS,
+  Button,
 } from 'react-native';
 import './i18n';
 import {useTranslation} from 'react-i18next';
 
 import i18next from 'i18next';
-import Options from 'react-native-actionsheet/lib/options';
 
 export default function Login() {
   const {t, i18n} = useTranslation('header', 'global');
@@ -44,6 +43,7 @@ export default function Login() {
     setPassword(!password);
   };
 
+  const [result, setResult] = useState('Random Number');
   let actionSheet = useRef();
   let optionArray = [
     'Option1',
@@ -55,12 +55,27 @@ export default function Login() {
     'Option7',
     'Cancel',
   ];
+  /*   const onPress = () => {
+      ActionSheetIOS.showActionSheetWithOptions(
+        {
+          Options: ['Cancel', 'sdf', 'Cwerw', 'Caeerel', 'Cancerterel'],
+          destructiveButtonIndex: 2,
+          cancelButtonIndex: 0,
+          userInterfaceStyle: 'dark',
+          title: 'Generate Numbers',
+          message: 'generating random number',
+        },
+        buttonIndex => {
+          if (buttonIndex === 0) {
+          } else if (buttonIndex === 1) {
+            setResult(Math.floor(Math.random() * 100) + 1);
+          } else if (buttonIndex === 2) {
+            setResult('Random Number');
+          }
+        },
+      );
+    }; */
 
-  const onPress = () => {
-    ActionSheetIOS.showActionSheetWithOptions({
-      Options: ['Cancel', 'sdf', 'Cwerw', 'Caeerel', 'Cancerterel'],
-    });
-  };
   return (
     <SafeAreaView
       style={{
@@ -141,10 +156,7 @@ export default function Login() {
           />
         </TouchableOpacity>
       </View>
-      <Text>React Native Bottom action Menu</Text>
-      <TouchableOpacity>
-        <Text>Open Bottom actionSheet</Text>
-      </TouchableOpacity>
+
       <View
         style={{
           height: '45%',
