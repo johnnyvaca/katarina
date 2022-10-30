@@ -116,7 +116,7 @@ export default function Splash() {
       </View>
       <View
         style={{
-            height: '45%',
+          height: '45%',
           justifyContent: 'flex-end',
           flexDirection: 'column',
         }}>
@@ -129,7 +129,7 @@ export default function Splash() {
             justifyContent: 'center',
             alignItems: 'center',
             flexDirection: 'row',
-              marginBottom: 20,
+            marginBottom: 20,
           }}>
           <Image
             style={{
